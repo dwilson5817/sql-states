@@ -7,7 +7,7 @@
 # granted permissions on all databases.
 {{ user }}:
   mysql_user.present:
-    - host: {{ args.host }}
+    - host: "{{ args.host }}"
     - password: {{ args.password }}
   mysql_grants.present:
     - grant: all privileges
@@ -17,7 +17,7 @@
     - database: {{ user }}_%.*
     {% endif %}
     - user: {{ user }}
-    - host: {{ args.host }}
+    - host: "{{ args.host }}"
 
 {% if args.databases is defined %}
 {% for database in args.databases %}
