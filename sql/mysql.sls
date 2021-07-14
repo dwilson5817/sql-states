@@ -1,4 +1,6 @@
 ---
+{%- set testing = salt['pillar.get']('testing') %}
+{% if not testing %}
 {% for user, args in pillar.get('users', {}).items() %}
 
 # CREATE USER ACCOUNT
@@ -32,3 +34,4 @@
 {% endif %}
 
 {% endfor %}
+{% endif %}
