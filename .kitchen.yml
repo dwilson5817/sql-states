@@ -40,6 +40,7 @@ provisioner:
         "*":
           - sql
     sql.sls:
+      testing: true
       users:
         admin:
           password: hunter2
